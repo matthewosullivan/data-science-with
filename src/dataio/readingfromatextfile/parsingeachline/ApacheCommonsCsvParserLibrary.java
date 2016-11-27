@@ -1,12 +1,15 @@
 package dataio.readingfromatextfile.parsingeachline;
 
-import java.awt.image.ReplicateScaleFilter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DelimitedStrings {
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+public class ApacheCommonsCsvParserLibrary {
 
 	public static void main(String[] args) {
 		List<Record> listOfRecords = new ArrayList<>();
@@ -16,13 +19,17 @@ public class DelimitedStrings {
 			String line;
 			
 			while ((line = br.readLine()) != null) {
+				
 				Record r = new Record();
 				
-				String[] s = line.split(",");// tab delimited data line.split("\t")
+				CSVParser parser = CSVParser.parse(line, CSVFormat.RFC4180);
 				
-				r.id = Integer.parseInt(s[0].trim());
-				r.year = Integer.parseInt(s[1].trim());
-				r.city = s[2].trim().replace("\"", "");
+				/* get columns starting at position 1 */
+				for (CSVRecord cr : parser) {
+					r.id = Integer.parseInt(cr.get(1));
+					r.year = Integer.parseInt(cr.get(2));
+					r.city = cr.get(3);
+				}
 				
 				listOfRecords.add(r);
 			}
