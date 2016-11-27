@@ -1,4 +1,4 @@
-package dataio.managingdatafiles;
+package dataio.managingdatafiles.parsingeachline;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import dataio.managingdatafiles.Record;
 
 public class JsonStrings {
 

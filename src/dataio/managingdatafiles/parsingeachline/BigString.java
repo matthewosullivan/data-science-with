@@ -1,4 +1,4 @@
-package dataio.managingdatafiles;
+package dataio.managingdatafiles.parsingeachline;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import dataio.managingdatafiles.Record;
 
 public class BigString {
 
@@ -39,10 +41,4 @@ public class BigString {
 		}
 	}
 
-}
-
-class Record {
-	int id;
-	int year;
-	String city;
 }

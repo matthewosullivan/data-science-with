@@ -1,10 +1,11 @@
-package dataio.managingdatafiles;
+package dataio.managingdatafiles.parsingeachline;
 
-import java.awt.image.ReplicateScaleFilter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import dataio.managingdatafiles.Record;
 
 public class DelimitedStrings {
 
