@@ -1,4 +1,4 @@
-package dataio.readingfromatextfile.parsingeachline;
+package dataio.managingdatafiles;
 
 import java.awt.image.ReplicateScaleFilter;
 import java.io.BufferedReader;

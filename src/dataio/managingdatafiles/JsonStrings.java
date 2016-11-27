@@ -5,34 +5,34 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
-public class ApacheCommonsCsvParserLibrary {
+public class JsonStrings {
 
 	public static void main(String[] args) {
 		List<Record> listOfRecords = new ArrayList<>();
+		
 		
 		try (BufferedReader br = new BufferedReader(new FileReader("somefile.txt"))) {
 			
 			String line;
 			
+			JSONParser parser = new JSONParser();
+			
 			while ((line = br.readLine()) != null) {
 				
 				Record r = new Record();
 				
-				CSVParser parser = CSVParser.parse(line, CSVFormat.RFC4180);
+				JSONObject obj = (JSONObject)parser.parse(line);
 				
-				/* get columns starting at position 1 */
-				for (CSVRecord cr : parser) {
-					r.id = Integer.parseInt(cr.get(1));
-					r.year = Integer.parseInt(cr.get(2));
-					r.city = cr.get(3);
-				}
+				r.id = Integer.parseInt(obj.get("id").toString());
+				r.year = Integer.parseInt(obj.get("year").toString());
+				r.city = obj.get("city").toString();
 				
 				listOfRecords.add(r);
 			}
+			
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

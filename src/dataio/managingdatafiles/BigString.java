@@ -1,4 +1,4 @@
-package dataio.readingfromatextfile.parsingeachline;
+package dataio.managingdatafiles;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
